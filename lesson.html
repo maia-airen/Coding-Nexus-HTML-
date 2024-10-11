@@ -69,9 +69,15 @@
       </ul>
   </div>
               <div class="course-info">You are learning COURSE Name</div>
-              <div class="icon-right">
+              <div class="icon-right" onclick="toggleDropdown()">
                 <i class="fa-regular fa-circle-left"></i>
+                <!-- Dropdown menu -->
+                <div id="dropdown-menu" class="dropdown-content">
+                  <a href="exercise.html">Take Exercise</a>
+                  <a href="quiz.html">Take Quiz</a>
+                </div>
               </div>
+              
               
             </div>
             
@@ -113,19 +119,7 @@
               </div>
              
             </div>
-          </section>
-
-          <!-- Add Exercise and Quiz Buttons -->
-          <div class="lesson-buttons">
-            <a href="exercise.html" class="exercise-btn-link">
-              <button class="exercise-btn">Exercise</button>
-            </a>
-            <a href="quiz.html" class="quiz-btn-link">
-              <button class="quiz-btn">Quiz</button>
-            </a>
-          </div>
-          
-                      
+          </section>                      
       </div>
 
       <script>
@@ -142,6 +136,30 @@
             lessonList.style.display = "none";
         }
     }
+
+
+    function toggleDropdown() {
+  const dropdown = document.getElementById('dropdown-menu');
+  if (dropdown.style.display === "none" || dropdown.style.display === "") {
+    dropdown.style.display = "block";
+  } else {
+    dropdown.style.display = "none";
+  }
+}
+
+// Optional: Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.icon-right, .icon-right *')) {
+    const dropdowns = document.getElementsByClassName("dropdown-content");
+    for (let i = 0; i < dropdowns.length; i++) {
+      let openDropdown = dropdowns[i];
+      if (openDropdown.style.display === "block") {
+        openDropdown.style.display = "none";
+      }
+    }
+  }
+}
+
         
       </script>
 </body>
