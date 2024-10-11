@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOME Page</title>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="lesson.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+</head>
+<body>
+    <div class="container">
+      <div class="nav-section">
+        <a href="home.html" class="nav-icon">
+            <img src="assets/logo.jpg" alt="CN Logo" class="logo" />
+        </a>
+        <div class="nav-items">
+            <div class="nav-item"><a href="home.html">HOME</a></div>
+            <div class="nav-item"><a class="active" href="courses.html">COURSES</a></div>
+            <div class="nav-item"><a   href="educators.html">CLASSROOM</a></div>
+            <div class="nav-item"><a href="about.html">ABOUT</a></div>
+            <div class="nav-item"><a href="manageacc.html">PROFILE</a></div>
+            <div class="nav-item"><a href="login.html">LOGIN</a></div>
+        </div>
+        <div class="hamburger-icon" onclick="toggleNav()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    
+    <!-- Search bar for mobile view --> 
+    <div class="mobile-search">
+        <input type="text" placeholder="Search...">
+    </div>
+    
+    <div class="mobile-nav-items" id="mobileNav">
+        <div class="nav-item">HOME</div>
+        <div class="nav-item">COURSES</div>
+        <div class="nav-item">EDUCATORS</div>
+        <div class="nav-item">ABOUT</div>
+        <div class="nav-item">PROFILE</div>
+        <div class="nav-item">LOGIN</div>
+    </div>
+    
+          <div class="container">
+            
+            <div class="header">
+              <div class="header-background"></div>
+              <div class="icon-rotate" onclick="toggleLessonList()">
+                <i class="fa-solid fa-list"></i>
+              </div>
+              <!-- Lesson List, initially hidden -->
+    <div id="lesson-list" class="lesson-list">
+      <h3>Lessons Already Taken</h3>
+      <ul>
+        <li><a href="lesson1.html">Lesson 1: Getting Started</a></li>
+          <li>Lesson 2: Basic Syntax</li>
+          <li>Lesson 3: Functions and Variables</li>
+      </ul>
+      <h3>All Lessons</h3>
+      <ul>
+          <li>Lesson 1: Getting Started</li>
+          <li>Lesson 2: Basic Syntax</li>
+          <li>Lesson 3: Functions and Variables</li>
+          <li>Lesson 4: Control Flow</li>
+          <li>Lesson 5: Advanced Topics</li>
+      </ul>
+  </div>
+              <div class="course-info">You are learning COURSE Name</div>
+              <div class="icon-right">
+                <i class="fa-regular fa-circle-left"></i>
+              </div>
+              
+            </div>
+            
+            <div class="lesson-container">
+                <div class="lesson-title">Lesson 1 : Getting Started</div>
+                
+                <div class="content-container">
+                    <div class="arrow left-arrow">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    
+                    <div class="lesson-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
+                        in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>
+                    
+                    <div class="arrow right-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+            
+              
+          </div>
+          <section class="container">
+            <div class="main-content">
+                <div class="example">
+                    <div class="example-bg"></div>
+                    <div class="example-heading">EXAMPLE:</div>
+                    <p class="code-example">#include using namespace std; <br> int main() <br>  cout  "Hello World!";  <br>  return 0</p>
+                    
+                  </div>
+              <div class="presentation">
+                <div class="presentation-bg"></div>
+                <p class="presentation-text">POWER POINT PRESENTATION / VIDEO TUTORIAL FROM YT</p>
+              </div>
+             
+            </div>
+          </section>
+
+          <!-- Add Exercise and Quiz Buttons -->
+          <div class="lesson-buttons">
+            <a href="exercise.html" class="exercise-btn-link">
+              <button class="exercise-btn">Exercise</button>
+            </a>
+            <a href="quiz.html" class="quiz-btn-link">
+              <button class="quiz-btn">Quiz</button>
+            </a>
+          </div>
+          
+                      
+      </div>
+
+      <script>
+        function toggleNav() {
+          var mobileNav = document.getElementById("mobileNav");
+          mobileNav.classList.toggle("open");
+        }
+
+        function toggleLessonList() {
+        const lessonList = document.getElementById("lesson-list");
+        if (lessonList.style.display === "none" || lessonList.style.display === "") {
+            lessonList.style.display = "block";
+        } else {
+            lessonList.style.display = "none";
+        }
+    }
+        
+      </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <Head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> HOME Page</title>
+        <link rel="stylesheet" href="globals.css" />
+        <link rel="stylesheet" href="home.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    </Head>
+    <body>
+      <div class="main-container">
+        <div class="nav-section">
+          <a href="home.html" class="nav-icon">
+            <img src="assets/logo.jpg" alt="CN Logo" class="logo" />
+        </a>
+          <div class="nav-items">
+              <div class="nav-item"><a class="active" href="home.html">HOME</a></div>
+              <div class="nav-item"><a href="courses.html">COURSES</a></div>
+              <div class="nav-item"><a href="educators.html">CLASSROOM</a></div>
+              <div class="nav-item"><a href="about.html">ABOUT</a></div>
+              <div class="nav-item"><a href="manageacc.html">PROFILE</a></div>
+              <div class="nav-item"><a href="login.html">LOGIN</a></div>
+          </div>
+          <div class="hamburger-icon" onclick="toggleNav()">
+              <i class="fas fa-bars"></i>
+          </div>
+      </div>
+      
+      
+      <!-- Search bar for mobile view -->
+      <div class="mobile-search">
+          <input type="text" placeholder="Search...">
+      </div>
+      
+      <div class="mobile-nav-items" id="mobileNav">
+          <div class="nav-item">HOME</div>
+          <div class="nav-item">COURSES</div>
+          <div class="nav-item">EDUCATORS</div>
+          <div class="nav-item">ABOUT</div>
+          <div class="nav-item">PROFILE</div>
+          <div class="nav-item">LOGIN</div>
+      </div>
+      
+        <div class="content-section">
+            <div class="header-text">
+                <div class="title">NEW TO PROGRAMMING?</div>
+            </div>
+            <div class="description-container">
+                <div class="description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                      ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+                      in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+            <div class="view-courses-btn">
+                <div class="btn-text"> <a  href="courses.html" >COURSES </a></div>
+            </div>
+        </div>
+    </div>
+    
+          <section class="about">
+            <div class="container">
+              <div class="main-content">
+                
+                <!-- Left section: Title, Description, and Button -->
+                <div class="abt-content">
+                  <div class="abttitle">CODING NEXUS: A TOOL FOR NOVICE PROGRAMMERS</div>
+                  <div class="abtdescription">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                    ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+                    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.                  
+                </div>
+                  <div class="button-container">
+                    <div class="button-text"><a href="about.html>">MORE</a></div>
+                  </div>
+                </div>
+                
+                <!-- Right section: Image -->
+                <img class="image-placeholder" src="assets/abt.jpg" />
+                
+              </div>
+            </div>
+          </section>
+
+          <section class="services">
+            <div class="servicetop">
+                <h1 class="servicetitle">OUR SERVICES</h1>
+            <h2 class="servicedescription"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi </h2>
+            </div>
+            
+            <div class="service">
+              
+              <div class="servicesbox">
+                <div class="service-text">Free Courses</div>
+                <div class="service-description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                </div>
+              </div>
+              <div class="servicesbox">
+                <div class="service-text">Free Courses</div>
+                <div class="service-description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                </div>
+              </div>
+              <div class="servicesbox">
+                <div class="service-text">Free Courses</div>
+                <div class="service-description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                </div>
+              </div>
+              <div class="servicesbox">
+                <div class="service-text">Free Courses</div>
+                <div class="service-description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                </div>
+              </div>
+              <div class="servicesbox">
+                <div class="service-text">Free Courses</div>
+                <div class="service-description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                </div>
+              </div>
+              <div class="servicesbox">
+                <div class="service-text">Free Courses</div>
+                <div class="service-description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                </div>
+              </div>
+            </div>
+          </section>
+          
+
+          <section class="ads">
+            <div class="cta-section">
+              <div class="cta-content">
+                <div class="cta-text">ARE YOU READY TO LEARN?</div>
+                <div class="cta-subtext">JOIN OUR FREE COURSES NOW!</div>
+                <div class="cta-button">
+                  <div class="button-text"><a href="courses.html">COURSES </a></div>
+                </div>
+              </div>
+              <img class="cta-image" src="assets/ads.jpg" alt="CTA Image" />
+            </div>
+          </section>
+
+          
+
+
+          <script>
+            function toggleNav() {
+                var mobileNav = document.getElementById("mobileNav");
+                mobileNav.classList.toggle("open");
+            }
+            </script>
+            
+    </body>
+</html>

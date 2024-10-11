@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOME Page</title>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="exercise.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  </head>
+  <body>
+    <div class="container">
+        <div class="nav-section">
+            <a href="home.html" class="nav-icon">
+                <img src="assets/logo.jpg" alt="CN Logo" class="logo" />
+            </a>
+            <div class="nav-items">
+                <div class="nav-item"><a  href="home.html">HOME</a></div>
+                <div class="nav-item"><a href="courses.html">COURSES</a></div>
+                <div class="nav-item"><a class="active" href="educators.html">CLASSROOM</a></div>
+                <div class="nav-item"><a href="about.html">ABOUT</a></div>
+                <div class="nav-item"><a href="manageacc.html">PROFILE</a></div>
+                <div class="nav-item"><a href="login.html">LOGIN</a></div>
+            </div>
+            <div class="hamburger-icon" onclick="toggleNav()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    
+    <!-- Search bar for mobile view -->
+    <div class="mobile-search">
+        <input type="text" placeholder="Search...">
+    </div>
+    
+    <div class="mobile-nav-items" id="mobileNav">
+        <div class="nav-item">HOME</div>
+        <div class="nav-item">COURSES</div>
+        <div class="nav-item">EDUCATORS</div>
+        <div class="nav-item">ABOUT</div>
+        <div class="nav-item">PROFILE</div>
+        <div class="nav-item">LOGIN</div>
+    </div>
+    
+
+    <p>Lesson 1: Exercise 1</p>
+    <div class="exercise-container">
+      <h1>4 Pics, 1 Word</h1>
+      <p class="puzzle-counter">Puzzle <span id="currentPuzzle">1</span> of <span id="totalPuzzles">3</span></p>
+      
+      <div class="images">
+          <img src="assets/image1.jpg" alt="Image 1" class="pic">
+          <img src="assets/image2.jpg" alt="Image 2" class="pic">
+          <img src="assets/image3.jpg" alt="Image 3" class="pic">
+          <img src="assets/image4.jpg" alt="Image 4" class="pic">
+      </div>
+
+      <input type="text" id="userAnswer" placeholder="Your answer" class="answer-input">
+      <button id="submitBtn">Submit</button>
+      
+      <div id="result" class="result"></div>
+
+      <div class="navigation-buttons">
+          <button id="prevBtn">Previous</button>
+          <button id="nextBtn">Next</button>
+      </div>
+  </div>
+  <div id="resultModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Quiz Results</h2>
+      <p id="score"></p>
+      <p id="mistakes"></p>
+    </div>
+  </div>
+    </div>
+</div>
+   
+
+    <script>
+      function toggleNav() {
+        var mobileNav = document.getElementById("mobileNav");
+        mobileNav.classList.toggle("open");
+      }
+// Game data (replace with your actual data)
+const puzzles = [
+    {
+        images: ["assets/image1.jpg", "assets/image2.jpg", "assets/image3.jpg", "assets/image4.jpg"],
+        answer: "coding"
+    },
+    {
+        images: ["assets/image5.jpg", "assets/image6.jpg", "assets/image7.png", "assets/image8.jpg"],
+        answer: "multimedia"
+    },
+    {
+        images: ["assets/image9.jpg", "assets/image10.png", "assets/image11.jpg", "assets/image12.png"],
+        answer: "hardware"
+    }
+];
+
+// Current puzzle index
+let currentPuzzleIndex = 0;
+let correctAnswers = 0;
+let mistakes = [];
+
+const totalPuzzles = puzzles.length;
+const submitBtn = document.getElementById("submitBtn");
+const userAnswerInput = document.getElementById("userAnswer");
+const resultDiv = document.getElementById("result");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const currentPuzzleSpan = document.getElementById("currentPuzzle");
+const totalPuzzlesSpan = document.getElementById("totalPuzzles");
+const images = document.querySelectorAll(".pic");
+
+// Modal elements
+const modal = document.getElementById("resultModal");
+const scoreDisplay = document.getElementById("score");
+const mistakesDisplay = document.getElementById("mistakes");
+const closeBtn = document.querySelector(".close-btn");
+
+// Set total puzzles display
+totalPuzzlesSpan.textContent = totalPuzzles;
+
+// Function to load puzzle data
+function loadPuzzle(index) {
+    const puzzle = puzzles[index];
+    puzzle.images.forEach((img, i) => {
+        images[i].src = img;
+    });
+    currentPuzzleSpan.textContent = index + 1;
+    userAnswerInput.value = "";
+    resultDiv.textContent = "";
+}
+
+// Submit answer handler
+submitBtn.addEventListener("click", function () {
+    const userAnswer = userAnswerInput.value.trim().toLowerCase();
+    if (userAnswer === puzzles[currentPuzzleIndex].answer) {
+        resultDiv.textContent = "Correct! 🎉";
+        resultDiv.style.color = "green";
+        correctAnswers++;
+    } else {
+        resultDiv.textContent = `Wrong! The correct answer is: ${puzzles[currentPuzzleIndex].answer}`;
+        resultDiv.style.color = "red";
+        mistakes.push(`Puzzle ${currentPuzzleIndex + 1}: Correct answer is "${puzzles[currentPuzzleIndex].answer}"`);
+    }
+
+    // Check if it's the last puzzle
+    if (currentPuzzleIndex === totalPuzzles - 1) {
+        // Show the modal with the results
+        scoreDisplay.textContent = `You got ${correctAnswers} out of ${totalPuzzles} correct.`;
+        mistakesDisplay.textContent = mistakes.length > 0 ? `Mistakes:\n${mistakes.join('\n')}` : "Great job! No mistakes!";
+        modal.style.display = "block";
+    }
+});
+
+// Close the modal when the user clicks on the close button
+closeBtn.addEventListener("click", function () {
+    modal.style.display = "none";
+});
+
+// Close the modal when the user clicks anywhere outside of the modal
+window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
+// Previous button handler
+prevBtn.addEventListener("click", function () {
+    if (currentPuzzleIndex > 0) {
+        currentPuzzleIndex--;
+        loadPuzzle(currentPuzzleIndex);
+    }
+});
+
+// Next button handler
+nextBtn.addEventListener("click", function () {
+    if (currentPuzzleIndex < totalPuzzles - 1) {
+        currentPuzzleIndex++;
+        loadPuzzle(currentPuzzleIndex);
+    }
+});
+
+// Initial puzzle load
+loadPuzzle(currentPuzzleIndex);
+
+
+    </script>
+  </body>
+</html>
