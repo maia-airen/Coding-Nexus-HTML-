@@ -81,6 +81,19 @@
             <div class="document-label">DOCUMENT 2</div>
         </div>
     </div>
+
+    <div class="comment-section">
+      <h2>Leave a Comment</h2>
+      <form id="commentForm">
+          <textarea id="commentText" rows="5" placeholder="Write your comment here..." required></textarea>
+          <button type="submit">Submit Comment</button>
+      </form>
+      <div id="commentDisplay">
+          <h3>Comments:</h3>
+          <ul id="commentList"></ul>
+      </div>
+  </div>
+  
     
     <footer class="footer">
       <div class="footer-left">
@@ -108,6 +121,27 @@ document.querySelector('.profile-icon').addEventListener('click', function (even
     event.preventDefault();
     var dropdown = document.querySelector('.dropdown-content');
     dropdown.classList.toggle('open');
+});
+
+
+
+document.getElementById('commentForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent form submission from refreshing the page
+
+    // Get the comment text
+    var commentText = document.getElementById('commentText').value;
+
+    if (commentText.trim() !== "") {
+        // Create a new list item for the comment
+        var commentListItem = document.createElement('li');
+        commentListItem.textContent = commentText;
+
+        // Append the comment to the comment list
+        document.getElementById('commentList').appendChild(commentListItem);
+
+        // Clear the comment textarea
+        document.getElementById('commentText').value = '';
+    }
 });
 
       </script>
