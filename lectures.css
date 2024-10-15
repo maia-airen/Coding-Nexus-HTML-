@@ -259,25 +259,25 @@
 }
 
 /* classroom nav  */
-
 .classroom-nav {
     width: 100%;
     max-width: 1280px;
-    height: 50px;
-    position: relative;
     margin: 30px auto; /* Center the navigation */
+    position: relative;
 }
 
 .background-box {
-    width: 100%;
-    height: 50px;
-    margin-top: 30px;
-    background: #D9D9D9;
-    border-radius: 8px;
-    position: absolute;
-    left: 0;
-    top: 0;
+  width: 100%;
+  height: 50px;
+  background: none; /* Removes the background color */
+  border: 2px solid black; /* Adds a black border */
+  border-radius: 8px;
+  position: relative;
+  display: flex; /* Flexbox for easy alignment */
+  align-items: center;
+  justify-content: space-around; /* Distributes the items evenly */
 }
+
 
 .title, .lectures, .activities, .students, .classroom-title {
     font-family: 'JetBrains Mono', monospace;
