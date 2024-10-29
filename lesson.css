@@ -326,9 +326,9 @@
 
 .lesson-description {
     flex-grow: 1; /* Allows the description to take up remaining space between arrows */
-    margin: 0 20px; /* Adds space between arrows and description */
+    margin: 0 50px; /* Adds space between arrows and description */
     color: black;
-    font-size: 26px;
+    font-size: 22px;
     font-family: 'JetBrains Mono', monospace;
     font-weight: 400;
     word-wrap: break-word;
