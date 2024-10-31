@@ -1,0 +1,254 @@
+                
+Lesson 1: Introduction to Java Object-Oriented Programming (OOP)
+
+1.  What is Object-Oriented Programming?
+Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects," which can contain data and code: data in the form of fields (attributes or properties) and code in the form of procedures (methods). OOP allows for modular programming, enabling developers to create reusable code and manage complexity in software development.
+2. Importance and Applications of OOP
+OOP is essential for developing large-scale applications, as it promotes code reusability, scalability, and maintainability. It is widely used in various domains, including web development, game development, and enterprise applications. Understanding OOP principles is crucial for any software developer, as it is a foundational concept in many programming languages, including Java.
+3.   Basic Concepts in OOP
+
+Class: A blueprint for creating objects, defining attributes and methods.
+Object: An instance of a class that contains actual data and can perform actions.
+Inheritance: A mechanism where one class can inherit attributes and methods from another class.
+Encapsulation: The bundling of data and methods that operate on the data within one unit (class), restricting access to some components.
+Polymorphism: The ability of different classes to be treated as instances of the same class through a common interface, allowing for method overriding and overloading.
+
+4.   Core Principles of OOP
+
+Abstraction: Hiding complex implementation details and exposing only the necessary parts of an object.
+Encapsulation: Protecting an object's state by restricting access to its internal state and requiring all interaction to occur through methods.
+Inheritance: Allowing a new class to inherit properties and behaviors from an existing class.
+Polymorphism: Allowing methods to do different things based on the object it is acting upon, achieved through method overriding and overloading.
+
+5.  Java OOP Syntax Overview
+
+Class Declaration:
+
+public class Car {
+    // Attributes
+    String color;
+    String model;
+
+    // Method
+    void drive() {
+        System.out.println("The car is driving.");
+    }
+}
+
+Creating an Object:
+
+Car myCar = new Car();
+myCar.color = "Red";
+myCar.drive();
+
+                          Lesson 2: Classes and Objects
+
+1. Defining a Class A class is defined using the class keyword, followed by the class name and a pair of curly braces. Inside the class, you can define attributes (fields) and methods (functions) that operate on the attributes.
+
+Example:
+
+public class Dog {
+    String breed;
+    int age;
+
+    void bark() {
+        System.out.println("Woof!");
+    }
+}
+
+2.  Creating Objects Objects are created using the new keyword followed by the class constructor.
+
+Example:
+
+Dog myDog = new Dog();
+myDog.breed = "Labrador";
+myDog.age = 3;
+myDog.bark(); // Output: Woof!
+
+3. Constructors A constructor is a special method that is called when an object is instantiated. It can be used to initialize attributes.
+
+Example:
+
+public class Cat {
+    String name;
+
+    // Constructor
+    Cat(String name) {
+        this.name = name;
+    }
+}
+
+Cat myCat = new Cat("Whiskers");
+
+                      Lesson 3: Inheritance
+
+1. What is Inheritance? Inheritance allows a new class (subclass) to inherit properties and methods from an existing class (superclass). This promotes code reusability and establishes a relationship between classes.
+
+2. Creating a Subclass Use the extends keyword to create a subclass.
+
+Example:
+
+public class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+public class Bird extends Animal {
+    void fly() {
+        System.out.println("The bird is flying.");
+    }
+}
+
+Bird myBird = new Bird();
+myBird.eat(); // Output: This animal eats food.
+myBird.fly(); // Output: The bird is flying.
+
+
+3.	3. Method Overriding (continued) Subclasses can provide specific implementations of methods defined in the superclass. This is known as method overriding. When a subclass overrides a method, it provides its own implementation while maintaining the same method signature.
+
+Example:
+
+public class Animal {
+    void sound() {
+        System.out.println("This animal makes a sound.");
+    }
+}
+
+public class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Woof!"); // Overriding the sound method
+    }
+}
+
+public class Cat extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Meow!"); // Overriding the sound method
+    }
+}
+
+Animal myDog = new Dog();
+myDog.sound(); // Output: Woof!
+
+Animal myCat = new Cat();
+myCat.sound(); // Output: Meow!
+
+                            Lesson 4: Polymorphism
+
+1.	What is Polymorphism? Polymorphism is the ability of different classes to be treated as instances of the same class through a common interface. It allows methods to perform differently based on the object that it is acting upon. There are two types of polymorphism: compile-time (method overloading) and runtime (method overriding).
+2.	Method Overloading Method overloading allows multiple methods in the same class to have the same name but different parameters (different type, number, or both).
+Example:
+
+public class MathOperations {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+
+MathOperations math = new MathOperations();
+System.out.println(math.add(5, 10));       // Output: 15
+System.out.println(math.add(5.5, 10.5));   // Output: 16.0
+System.out.println(math.add(1, 2, 3));     // Output: 6
+
+3.	Runtime Polymorphism Runtime polymorphism is achieved through method overriding. The method that gets executed is determined at runtime based on the object type.
+Example:
+
+public class Shape {
+    void draw() {
+        System.out.println("Drawing a shape.");
+    }
+}
+
+public class Circle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a circle.");
+    }
+}
+
+public class Rectangle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a rectangle.");
+    }
+}
+
+Shape myShape = new Circle();
+myShape.draw(); // Output: Drawing a circle.
+
+myShape = new Rectangle();
+myShape.draw(); // Output: Drawing a rectangle.
+
+            Lesson 5: Encapsulation and Abstraction
+1.	What is Encapsulation? Encapsulation is the bundling of data (attributes) and methods (functions) that operate on the data within a single unit (class), restricting access to some components. This helps protect the integrity of the data and prevents external interference and misuse.
+
+Example:
+
+public class BankAccount {
+    private double balance; // private attribute
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+        }
+    }
+
+    public double getBalance() {
+        return balance; // public method to access the private attribute
+    }
+}
+
+BankAccount myAccount = new BankAccount();
+myAccount.deposit(100);
+myAccount.withdraw(30);
+System.out.println(myAccount.getBalance()); // Output: 70.0
+ 
+2.	What is Abstraction? Abstraction is the concept of hiding the complex implementation details and showing only the necessary features of an object. It can be achieved using abstract classes and interfaces.
+3.	Abstract Classes and Interfaces An abstract class is a class that cannot be instantiated and can contain abstract methods (methods without a body) as well as concrete methods (methods with a body). An interface is a reference type in Java that can contain only constants, method signatures, default methods, static methods, and nested types.
+Example of an Abstract Class:
+
+abstract class Animal {
+    abstract void sound(); // Abstract method
+
+    void eat() {
+        System.out.println("This animal eats food."); // Concrete method
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Woof!");
+    }
+}
+
+Animal myDog = new Dog();
+myDog.sound(); // Output: Woof!
+myDog.eat();   // Output: This animal eats food.
+
+
+
+The following links:
+https://youtu.be/7GwptabrYyk
+https://www.youtube.com/watch?v=5OrZpBbGKgc
+https://www.youtube.com/watch?v=FC2T7jl0C_s
+https://www.youtube.com/watch?v=6T_HgnjoYwM
+https://www.youtube.com/watch?v=PiyCadR2pUw
+https://youtu.be/j0lBrYSlYaU
+

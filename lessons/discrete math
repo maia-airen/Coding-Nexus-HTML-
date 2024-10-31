@@ -1,0 +1,136 @@
+          Lesson 1: Introduction to Discrete Mathematics
+
+1. What is Discrete Mathematics? 
+Discrete Mathematics is a branch of mathematics dealing with countable, distinct, and separate objects. It includes topics such as logic, set theory, combinatorics, graph theory, and algorithms. Discrete Mathematics is foundational for computer science, as it provides the mathematical framework for analyzing and designing algorithms and data structures.
+
+2. Importance and Applications of Discrete Mathematics Discrete Mathematics is essential in computer science, cryptography, network design, and database theory. It helps in solving problems related to counting, arrangement, and decision-making, which are critical in algorithm design and analysis. Understanding Discrete Mathematics is crucial for anyone pursuing a career in computer science or related fields.
+
+3. Basic Concepts in Discrete Mathematics
+
+Set Theory: The study of sets, which are collections of distinct objects.
+Logic: The study of reasoning and argumentation, focusing on propositions and their relationships.
+Functions: A relation between a set of inputs and a set of permissible outputs, where each input is related to exactly one output.
+Combinatorics: The study of counting, arrangement, and combination of objects.
+Graph Theory: The study of graphs, which are mathematical structures used to model pairwise relationships between objects.
+
+4. Core Principles of Discrete Mathematics
+
+Logic and Propositions: Understanding logical statements, truth values, and logical operations (AND, OR, NOT).
+Set Operations: Operations such as union, intersection, and difference on sets.
+Counting Principles: Techniques for counting arrangements and selections, including permutations and combinations.
+Graph Representation: Understanding vertices, edges, and different types of graphs (directed, undirected, weighted).
+5. Notation and Terminology
+
+Set Notation: A set is usually denoted by curly braces, e.g., ( A = {1, 2, 3} ).
+Logical Operators: Common operators include:
+AND ((\land))
+OR ((\lor))
+NOT ((\neg))
+Functions: Denoted as ( f: A \to B ) where ( A ) is the domain and ( B ) is the codomain.
+
+                                 Lesson 2: Set Theory
+ 
+1.	Basic Concepts of Set Theory A set is a collection of distinct objects. Sets can be finite or infinite, and they can contain elements of any type.
+
+Example:
+
+Finite Set: ( A = {1, 2, 3} )
+Infinite Set: ( B = {x \mid x \text{ is a natural number}} )
+
+2.	Set Operations
+
+Union: The union of two sets ( A ) and ( B ) is the set of elements that are in either ( A ) or ( B ). [ A \cup B = {x | x \in A \text{ or } x \in B} ]
+
+Intersection: The intersection of two sets ( A ) and ( B ) is the set of elements that are in both ( A ) and ( B ). [ A \cap B = {x | x \in A \text{ and } x \in B} ]
+
+Difference: The difference of two sets ( A ) and ( B ) is the set of elements that are in ( A ) but not in ( B ). [ A - B = {x | x \in A \text{ and } x \notin B} ]
+
+3.	Example of Set Operations Let ( A = {1, 2, 3} ) and ( B = {2, 3, 4} ).
+
+Union: ( A \cup B = {1, 2, 3, 4} )
+Intersection: ( A \cap B = {2, 3} )
+Difference: ( A - B = {1} )
+
+                                      Lesson 3: Logic and Propositions
+
+1.	Propositions A proposition is a declarative statement that is either true or false, but not both.
+Example:
+
+True Proposition: "The sky is blue."
+False Proposition: "2 + 2 = 5."
+
+Logical Operations Logical operations manipulate propositions to form new propositions. The basic logical operations include:
+•	AND ((\land)): The conjunction of two propositions is true if both propositions are true.
+•	Truth Table:
+A	B	A AND B (A ∧ B)
+True	True	True
+True	False	False
+False	True	False
+False	False	False
+
+•	OR ((\lor)): The disjunction of two propositions is true if at least one of the propositions is true.
+•	Truth Table:
+A	B	A OR B (A ∨ B)
+True	True	True
+True	False	True
+False	True	True
+False	False	False
+•	NOT ((\neg)): The negation of a proposition is true if the proposition is false.
+•	Truth Table:
+A	NOT A (¬A)
+True	False
+False	True
+
+
+2.	Compound Propositions Compound propositions are formed by combining one or more propositions using logical operations.
+Example: Let ( P ): "It is raining."
+Let ( Q ): "I will take an umbrella."
+A compound proposition could be ( P \land Q ): "It is raining and I will take an umbrella."
+3.	Truth Tables for Compound Propositions Truth tables can be constructed for compound propositions to determine their truth values based on the truth values of the individual propositions.
+Example: For ( P ): "It is raining." and ( Q ): "I will take an umbrella."
+•	Truth Table for ( P \land Q ):
+P	Q	P AND Q (P ∧ Q)
+True	True	True
+True	False	False
+False	True	False
+False	False	False
+
+
+Lesson 4: Functions
+1.	What is a Function? A function is a relation between two sets that associates each element of the first set (domain) with exactly one element of the second set (codomain).
+Notation: A function ( f ) from set ( A ) to set ( B ) is denoted as ( f: A \to B ).
+2.	Types of Functions
+•	Injective (One-to-One): A function ( f ) is injective if different elements in the domain map to different elements in the codomain.
+•	Surjective (Onto): A function ( f ) is surjective if every element in the codomain is mapped by at least one element in the domain.
+•	Bijective: A function is bijective if it is both injective and surjective, establishing a one-to-one correspondence between the domain and codomain.
+3.	Example of a Function Let ( f: {1, 2, 3} \to {a, b, c} ) defined by:
+•	( f(1) = a )
+•	( f(2) = b )
+•	( f(3) = c )
+This function is both injective and surjective.
+4.	Function Composition The composition of two functions ( f ) and ( g ) is a new function ( h ) defined by ( h(x) = f(g(x)) ).
+Example: 
+Let ( f(x) = x + 1 ) and ( g(x) = 2x ). The composition ( h(x) = f(g(x)) = f(2x) = 2x + 1 ).
+
+Lesson 5: Combinatorics (Continued)
+1.	Basic Counting Principles (Continued)
+Multiplication Principle: If there are ( m ) ways to do one thing and ( n ) ways to do another, then there are ( m \times n ) ways to do both things in sequence.
+Example:
+ If you have 3 shirts and 2 pairs of pants, the total combinations of outfits are: [ 3 \text{ (shirts)} \times 2 \text{ (pants)} = 6 \text{ (outfits)} ]
+
+2.	Permutations A permutation is an arrangement of objects in a specific order. The number of permutations of ( n ) distinct objects is given by ( n! ) (n factorial), where: [ n! = n \times (n-1) \times (n-2) \times \ldots \times 2 \times 1 ]
+Example: 
+The number of ways to arrange 3 books on a shelf: [ 3! = 3 \times 2 \times 1 = 6 ] The arrangements are: ABC, ACB, BAC, BCA, CAB, CBA.
+
+3.	Combinations A combination is a selection of objects without regard to the order. The number of combinations of ( n ) objects taken ( r ) at a time is given by: [ C(n, r) = \frac{n!}{r!(n-r)!} ]
+Example: 
+The number of ways to choose 2 fruits from a selection of 5 (say apples, bananas, cherries, dates, and elderberries): [ C(5, 2) = \frac{5!}{2!(5-2)!} = \frac{5!}{2!3!} = \frac{5 \times 4}{2 \times 1} = 10 ]      
+
+ The following links:
+https://www.youtube.com/watch?v=p2b2Vb-cYCs
+https://www.youtube.com/watch?v=UwYJUKVc-Hs
+https://www.youtube.com/playlist?list=PLDDGPdw7e6Ag1EIznZ-m-qXu4XX3A0cIz
+https://www.youtube.com/playlist?list=PLl-gb0E4MII28GykmtuBXNUNoej-vY5Rz
+https://www.youtube.com/playlist?list=PLhSp9OSVmeyJry1DZ0v10k_e0zfiXkOVK
+https://www.youtube.com/playlist?list=PLHXZ9OQGMqxersk8fUxiUMSIx0DBqsKZS
+
