@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HOME Page</title>
+        <link rel="stylesheet" href="globals.css" />
+        <link rel="stylesheet" href="crossword.css" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+      </head>
+      <body>
+        <div class="container">
+            <div class="nav-section">
+                <a href="home.html" class="nav-icon">
+                    <img src="assets/logo.png" alt="CN Logo" class="logo" />
+                </a>
+                <div class="nav-items">
+                    <div class="nav-item"><a href="home.html">HOME</a></div>
+                    <div class="nav-item"><a class="active" href="courses.html">COURSES</a></div>
+                    <div class="nav-item"><a href="educators.html">CLASSROOM</a></div>
+                    <div class="nav-item"><a href="about.html">ABOUT</a></div>
+            
+                    <!-- Profile Dropdown Menu -->
+                    <div class="nav-item profile-dropdown">
+                        <a href="#" class="profile-icon">
+                            <i class="fas fa-user-circle"></i> <!-- FontAwesome Profile Icon -->
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="login.html">Login/Logout</a>
+                            <a href="manageacc.html">Manage Profile</a>
+                        </div>
+                    </div>
+            
+                
+                </div>
+                <div class="hamburger-icon" onclick="toggleNav()">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        
+        <!-- Search bar for mobile view -->
+        <div class="mobile-search">
+            <input type="text" placeholder="Search...">
+        </div>
+        
+        <div class="mobile-nav-items" id="mobileNav">
+            <div class="nav-item">HOME</div>
+            <div class="nav-item">COURSES</div>
+            <div class="nav-item">EDUCATORS</div>
+            <div class="nav-item">ABOUT</div>
+            <div class="nav-item">PROFILE</div>
+            <div class="nav-item">LOGIN</div>
+        </div>
+        
+    
+        <div class="container">
+            <h1>Coding Nexus Crossword</h1>
+            <p>Test your programming knowledge with this crossword game!</p>
+            <div class="crossword-container">
+              <div class="clues">
+                <h3>Clues:</h3>
+                <ul>
+                  <li><strong>Across:</strong></li>
+                  <li>1. for (int i = 0; i &lt; _____; i++)</li>
+                  <li>3. if (_____ == true)</li>
+                  <li><strong>Down:</strong></li>
+                  <li>2. System.out.println("Hello, _____!");</li>
+                </ul>
+              </div>
+              <div class="crossword">
+                <table>
+                  <tr>
+                    <td><input type="text" maxlength="1" data-letter="N"></td>
+                    <td><input type="text" maxlength="1" data-letter="U"></td>
+                    <td><input type="text" maxlength="1" data-letter="M"></td>
+                    <td><input type="text" maxlength="1" data-letter=""></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" maxlength="1" data-letter=""></td>
+                    <td><input type="text" maxlength="1" data-letter="O"></td>
+                    <td><input type="text" maxlength="1" data-letter=""></td>
+                    <td><input type="text" maxlength="1" data-letter=""></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" maxlength="1" data-letter="C"></td>
+                    <td><input type="text" maxlength="1" data-letter="O"></td>
+                    <td><input type="text" maxlength="1" data-letter="N"></td>
+                    <td><input type="text" maxlength="1" data-letter="D"></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" maxlength="1" data-letter="W"></td>
+                    <td><input type="text" maxlength="1" data-letter="O"></td>
+                    <td><input type="text" maxlength="1" data-letter="R"></td>
+                    <td><input type="text" maxlength="1" data-letter="L"></td>
+                  </tr>
+                </table>
+                <div class="crossword-footer">
+                    <button id="checkAnswers">Check Answers</button>
+                    <div id="result"></div>
+                  </div>
+              </div>
+            </div>
+            
+          </div>
+          
+  <script src="crossword.js"></script>
+
+</body>
+</html>
