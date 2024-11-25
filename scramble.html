@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>HOME Page</title>
         <link rel="stylesheet" href="globals.css" />
-        <link rel="stylesheet" href="crossword.css" />
+        <link rel="stylesheet" href="scramble.css" />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -58,21 +58,36 @@
         </div>
 
 
-    <h1>Code Scramble</h1>
-    <div class="game-container">
-        <p>Rearrange the lines of code to make the program work:</p>
-        <ul id="scrambledCode" class="scrambled-code">
-            <li>System.out.println("Hello, World!");</li>
-            <li>public static void main(String[] args) {</li>
-            <li>System.out.println("Coding is fun!");</li>
-            <li>public class HelloWorld {</li>
-            <li>}</li>
-            <li>}</li>
-        </ul>
-        <button id="checkOrder">Check Order</button>
-        <div id="result"></div>
-    </div>
-
-    <script src="scramble.js"></script>
+        <h1>Code Scramble Game</h1>
+              <h4>Rearrange the scrambled code to form the correct solution!</h4>
+        
+        <div class="main-container">
+            <div class="game-container">
+              
+              <div class="box" id="clue-box">
+                <h3>Expected Output</h3>
+                <p id="clue"></p>
+              </div>
+        
+              <div id="game"></div>
+        
+              <div class="box" id="user-code-box">
+                <h3>Your Code</h3>
+                <pre id="user-code"></pre>
+              </div>
+        
+              <button id="check-answer">Check Answer</button>
+            </div>
+        
+            <div class="result-container">
+                <h3>Results</h3>
+              <div class="box" id="result-box">
+                
+                <p id="correct-code"></p>
+                <p id="score"></p>
+              </div>
+            </div>
+          </div>
+          <script src="scramble.js"></script>
 </body>
 </html>

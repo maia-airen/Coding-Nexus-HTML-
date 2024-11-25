@@ -263,53 +263,118 @@ h1 {
     color: #972726;
     text-align: center;
 }
+.main-container {
+  display: flex;
+  gap: 20px; /* Space between the game and result containers */
+  width: 100%;
+  max-width: 1200px;
+}
 
+.game-container,
+.result-container {
+  flex: 1; /* Equal space for both sections */
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 .game-container {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Ensures even spacing between child elements */
+    height: 100%; /* Ensures the container's height is used for spacing */
+  }
+  
+  #clue-box,
+  #user-code-box,
+  #game {
+    margin: 10px 0; /* Provides some padding around the elements */
+    width: 100%; /* Makes all boxes take the full width of the container */
+  }
+.box {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 30px;
+  text-align: left;
+  width: 100%;
 }
 
-.scrambled-code {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
+h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  text-align: center;
+}
+h4{
+    text-align: center;
+}
+p{
+    text-align: center;
+    color: #972726;
 }
 
-.scrambled-code li {
+pre {
+  background: #eaeaea;
+  padding: 10px;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  font-family: monospace;
+}
+
+.scramble-item {
+  background: #bd7171;
+  color: #fff;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.scramble-item:hover {
+  background: #0056b3;
+}
+
+#check-answer {
+  padding: 10px 20px;
+  border: none;
+  background: #972726;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#check-answer:hover {
+  background: #bd7171;
+}
+
+#result-box p {
+    font-size: 16px;
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  #result-box pre {
+    background: #eaeaea;
     padding: 10px;
-    margin-bottom: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    cursor: move;
+    border-radius: 5px;
+    white-space: pre-wrap;
     font-family: monospace;
-    font-size: 16px;
+    color: #972726;
+  }
+  
+.result-container h3 {
+  text-align: center;
 }
 
-.scrambled-code li:hover {
-    background-color: #f0f0f0;
-}
-
-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #972726;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #b12b2b;
-}
-
-#result {
-    margin-top: 20px;
-    font-size: 18px;
+#score {
+  font-weight: bold;
+  margin-top: 10px;
 }
