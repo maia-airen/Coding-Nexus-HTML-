@@ -49,24 +49,22 @@ function selectWord(word, index) {
   const selectedIndex = userAnswer.indexOf(index);
 
   if (selectedIndex === -1) {
-    // Word is not yet selected; add it to the answer
     userAnswer.push(index);
     document.querySelector(`.scramble-item[data-index='${index}']`).style.visibility = "hidden";
   } else {
-    // Word is already selected; remove it from the answer
     userAnswer.splice(selectedIndex, 1);
     document.querySelector(`.scramble-item[data-index='${index}']`).style.visibility = "visible";
   }
 
-  // Update the user's code display
   const selectedWords = userAnswer.map((i) => gameData[currentIndex].scrambled[i]);
   userCodeBox.textContent = selectedWords.join(" ");
 }
 
+
 function checkAnswer() {
   const { correct } = gameData[currentIndex];
   const selectedWords = userAnswer.map((i) => gameData[currentIndex].scrambled[i]);
-  const userCode = selectedWords.join(" ");
+  const userCode = selectedWords.join(" ").replace(/\s+/g, " ").trim(); // Normalize spaces
 
   resultBox.style.display = "block";
 
@@ -86,6 +84,7 @@ function checkAnswer() {
     `;
   }
 }
+
 
 document.getElementById("check-answer").addEventListener("click", checkAnswer);
 
