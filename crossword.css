@@ -252,54 +252,53 @@
   }
   
   /* nav end */
-.container {
+  .container {
     width: 100%;
-
 }
 
 h1 {
     color: #972726;
     text-align: center;
-  }
-p{
+}
+
+p {
     text-align: center;
 }
-  
-  .crossword-container {
+
+.crossword-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 100px; /* Add spacing between the clues and the crossword */
     margin-top: 50px;
-  }
-  
-  .clues {
+}
+
+.clues {
     flex: 1;
     max-width: 300px;
     font-size: 20px;
     margin-left: 50px;
     font-family: 'JetBrains Mono', monospace;
+}
 
-  }
-  
-  .crossword {
+.crossword {
     flex: 2;
-  }
-  
-  .crossword table {
+}
+
+.crossword table {
     margin-left: 90px;
     border-collapse: collapse;
     width: 70%;
-  }
-  
-  .crossword td {
+}
+
+.crossword td {
     border: 2px solid #000;
     width: 30px;
     height: 50px;
     text-align: center;
-  }
-  
-  .crossword input {
+}
+
+.crossword input {
     width: 100%;
     height: 100%;
     text-align: center;
@@ -308,38 +307,55 @@ p{
     border: none;
     outline: none;
     background-color: #fff;
-  }
-  
-  .crossword input[data-letter=""] {
+}
+
+.crossword input[data-letter=""] {
     background-color: #ddd;
-  }
-  
-  button {
+}
+
+button {
     margin-top: 20px;
-  }
-  
-  .crossword-footer {
-    margin-top: 20px; /* Space between table and footer */
-    text-align: center; /* Center align the content */
-  }
-  
-  #checkAnswers {
-    padding: 5px 10px;
-    font-size: 16px;
-    background-color: #972726; /* Button color */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  #checkAnswers:hover {
-    background-color: #d94f4f; /* Lighter color on hover */
-  }
-  
-  #result {
+}
+
+.crossword-footer {
+  margin-top: 20px; /* Space between table and footer */
+  text-align: center; /* Center align the content */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center align horizontally */
+  gap: 15px; /* Add spacing between sections */
+}
+
+.nav-buttons {
+  display: flex; /* Arrange buttons horizontally */
+  gap: 10px; /* Add spacing between the Previous and Next buttons */
+}
+
+#prevItem, #nextItem, #checkAnswers {
+  padding: 5px 15px;
+  font-size: 16px;
+  background-color: #972726; /* Button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#prevItem:hover, #nextItem:hover, #checkAnswers:hover {
+  background-color: #d94f4f; /* Lighter color on hover */
+}
+
+#result {
     margin-top: 10px;
     font-size: 16px;
     color: #555; /* Neutral text color for results */
-  }
-  
+}
+
+/* Align Next and Previous buttons */
+.crossword-footer button {
+    display: inline-block;
+}
+
+.crossword-footer #checkAnswers {
+    margin-top: 10px; /* Slight separation from Previous/Next */
+}

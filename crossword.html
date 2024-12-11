@@ -59,54 +59,59 @@
         
     
         <div class="container">
-            <h1>Coding Nexus Crossword</h1>
-            <p>Test your programming knowledge with this crossword game!</p>
-            <div class="crossword-container">
-              <div class="clues">
-                <h3>Clues:</h3>
-                <ul>
-                  <li><strong>Across:</strong></li>
-                  <li> for (int i = 0; i &lt; _____; i++)</li>
-                  <li> if (_____ == true)</li>
-                  <li><strong>Down:</strong></li>
-                  <li> System.out.println("Hello, _____!");</li>
-                </ul>
+          <h1>Coding Nexus Crossword</h1>
+          <p>Test your programming knowledge with this crossword game!</p>
+          <div class="crossword-container">
+              <div class="clues" id="cluesContainer">
+                  <h3>Clues:</h3>
+                  <ul id="cluesList">
+                      <li><strong>Across:</strong></li>
+                      <li>for (int i = 0; i &lt; _____; i++)</li>
+                      <li>if (_____ == true)</li>
+                      <li><strong>Down:</strong></li>
+                      <li>System.out.println("Hello, _____!");</li>
+                  </ul>
               </div>
               <div class="crossword">
-                <table>
-                  <tr>
-                    <td><input type="text" maxlength="1" data-letter="N"></td>
-                    <td><input type="text" maxlength="1" data-letter="U"></td>
-                    <td><input type="text" maxlength="1" data-letter="M"></td>
-                    <td><input type="text" maxlength="1" data-letter=""></td>
-                  </tr>
-                  <tr>
-                    <td><input type="text" maxlength="1" data-letter=""></td>
-                    <td><input type="text" maxlength="1" data-letter="O"></td>
-                    <td><input type="text" maxlength="1" data-letter=""></td>
-                    <td><input type="text" maxlength="1" data-letter=""></td>
-                  </tr>
-                  <tr>
-                    <td><input type="text" maxlength="1" data-letter="C"></td>
-                    <td><input type="text" maxlength="1" data-letter="O"></td>
-                    <td><input type="text" maxlength="1" data-letter="N"></td>
-                    <td><input type="text" maxlength="1" data-letter="D"></td>
-                  </tr>
-                  <tr>
-                    <td><input type="text" maxlength="1" data-letter="W"></td>
-                    <td><input type="text" maxlength="1" data-letter="O"></td>
-                    <td><input type="text" maxlength="1" data-letter="R"></td>
-                    <td><input type="text" maxlength="1" data-letter="L"></td>
-                  </tr>
-                </table>
-                <div class="crossword-footer">
+                  <table id="crosswordTable">
+                      <tr>
+                          <td><input type="text" maxlength="1" data-letter="N"></td>
+                          <td><input type="text" maxlength="1" data-letter="U"></td>
+                          <td><input type="text" maxlength="1" data-letter="M"></td>
+                          <td><input type="text" maxlength="1" data-letter=""></td>
+                      </tr>
+                      <tr>
+                          <td><input type="text" maxlength="1" data-letter=""></td>
+                          <td><input type="text" maxlength="1" data-letter="O"></td>
+                          <td><input type="text" maxlength="1" data-letter=""></td>
+                          <td><input type="text" maxlength="1" data-letter=""></td>
+                      </tr>
+                      <tr>
+                          <td><input type="text" maxlength="1" data-letter="C"></td>
+                          <td><input type="text" maxlength="1" data-letter="O"></td>
+                          <td><input type="text" maxlength="1" data-letter="N"></td>
+                          <td><input type="text" maxlength="1" data-letter="D"></td>
+                      </tr>
+                      <tr>
+                          <td><input type="text" maxlength="1" data-letter="W"></td>
+                          <td><input type="text" maxlength="1" data-letter="O"></td>
+                          <td><input type="text" maxlength="1" data-letter="R"></td>
+                          <td><input type="text" maxlength="1" data-letter="L"></td>
+                      </tr>
+                  </table>
+                  <div class="crossword-footer">
+                    <div class="nav-buttons">
+                        <button id="prevItem">Previous</button>
+                        <button id="nextItem">Next</button>
+                    </div>
                     <button id="checkAnswers">Check Answers</button>
                     <div id="result"></div>
-                  </div>
+                </div>
+                
               </div>
-            </div>
-            
           </div>
+      </div>
+      
           
   <script src="crossword.js"></script>
 
