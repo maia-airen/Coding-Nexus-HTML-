@@ -252,129 +252,131 @@
   }
   
   /* nav end */
-.container {
+  
+  
+  .container {
     width: 100%;
-
-}
-
-
-
-h1 {
-    color: #972726;
-    text-align: center;
-}
-.main-container {
-  display: flex;
-  gap: 20px; /* Space between the game and result containers */
-  width: 100%;
-  max-width: 1200px;
-}
-
-.game-container,
-.result-container {
-  flex: 1; /* Equal space for both sections */
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between; /* Ensures even spacing between child elements */
-    height: 100%; /* Ensures the container's height is used for spacing */
+    padding: 20px;
+    max-width: 1200px;
   }
   
-  #clue-box,
-  #user-code-box,
-  #game {
-    margin: 10px 0; /* Provides some padding around the elements */
-    width: 100%; /* Makes all boxes take the full width of the container */
+  h1 {
+    color: #4a4a4a;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 10px;
   }
-.box {
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 30px;
-  text-align: left;
-  width: 100%;
-}
-
-h3 {
-  margin: 0 0 10px;
-  font-size: 18px;
-  text-align: center;
-}
-h4{
+  
+  h4 {
     text-align: center;
-}
-p{
+    color: #6c757d;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .main-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .game-container,
+  .result-container {
+    flex: 1;
+    max-width: 500px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
     text-align: center;
-    color: #972726;
-}
-
-pre {
-  background: #eaeaea;
-  padding: 10px;
-  border-radius: 5px;
-  white-space: pre-wrap;
-  font-family: monospace;
-}
-
-.scramble-item {
-  background: #bd7171;
-  color: #fff;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.scramble-item:hover {
-  background: #0056b3;
-}
-
-#check-answer {
-  padding: 10px 20px;
-  border: none;
-  background: #972726;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-#check-answer:hover {
-  background: #bd7171;
-}
-
-#result-box p {
+  }
+  
+  .box {
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: left;
     font-size: 16px;
+  }
+  
+  h3 {
+    margin: 0 0 15px;
+    font-size: 20px;
+    color: #4a4a4a;
+    border-bottom: 2px solid #f4f4f9;
+    padding-bottom: 5px;
+  }
+  
+  p {
     text-align: center;
+    color: #4a4a4a;
+  }
+  
+  pre {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    overflow-x: auto;
+    border: 1px solid #e0e0e0;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  #result-box p {
+    font-size: 16px;
     margin: 10px 0;
   }
   
   #result-box pre {
-    background: #eaeaea;
-    padding: 10px;
+    background: #f8f9fa;
+    padding: 15px;
     border-radius: 5px;
-    white-space: pre-wrap;
-    font-family: monospace;
-    color: #972726;
+    font-family: "Courier New", Courier, monospace;
+    color: #495057;
+    border: 1px solid #e0e0e0;
   }
   
-.result-container h3 {
-  text-align: center;
-}
-
-#score {
-  font-weight: bold;
-  margin-top: 10px;
-}
+  .result-container h3 {
+    text-align: center;
+    color: #4a4a4a;
+  }
+  
+  #score {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  

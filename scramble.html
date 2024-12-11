@@ -56,37 +56,35 @@
             <div class="nav-item">PROFILE</div>
             <div class="nav-item">LOGIN</div>
         </div>
-
-
-        <h1>Code Scramble Game</h1>
-              <h4>Rearrange the scrambled code to form the correct solution!</h4>
         
         <div class="main-container">
-            <div class="game-container">
-              
-              <div class="box" id="clue-box">
-                <h3>Expected Output</h3>
-                <p id="clue"></p>
-              </div>
-        
-              <div id="game"></div>
-        
-              <div class="box" id="user-code-box">
-                <h3>Your Code</h3>
-                <pre id="user-code"></pre>
-              </div>
-        
-              <button id="check-answer">Check Answer</button>
+          
+            <h1>What is the Expected Output?</h1>
+            <h4>Read the code snippet and type the expected output!</h4>
+    
+            <div class="main-container">
+                <div class="game-container">
+                    <div class="box" id="code-box">
+                        <h3>Code Snippet</h3>
+                        <pre id="code-snippet"></pre>
+                    </div>
+    
+                    <div class="box" id="user-answer-box">
+                        <h3>Your Answer</h3>
+                        <input type="text" id="user-answer" placeholder="Type your answer here..." />
+                    </div>
+    
+                    <button id="check-answer">Check Answer</button>
+                </div>
+    
+                <div class="result-container">
+                    <h3>Results</h3>
+                    <div class="box" id="result-box">
+                        <p id="result-message"></p>
+                    </div>
+                </div>
             </div>
-        
-            <div class="result-container">
-                <h3>Results</h3>
-              <div class="box" id="result-box">
-                
-                <p id="correct-code"></p>
-                <p id="score"></p>
-              </div>
-            </div>
+           
           </div>
           <script src="scramble.js"></script>
 </body>

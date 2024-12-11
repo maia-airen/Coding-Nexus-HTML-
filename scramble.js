@@ -1,90 +1,117 @@
 const gameData = [
   {
-    scrambled: ["int", "main()", "{", "printf(", "'Hello, World!'", ");", "}"],
-    correct: "int main() { printf('Hello, World!'); }",
-    output: "Hello, World!",
+    code: "int main() { printf(\"Hello, World!\\n\"); return 0; }",
+    output: "Hello, World!"
   },
   {
-    scrambled: ["#include", "<stdio.h>", "int", "sum(int", "a,", "int", "b)", "{", "return", "a", "+", "b;", "}"],
-    correct: "#include <stdio.h> int sum(int a, int b) { return a + b; }",
-    output: "The sum of two numbers is returned.",
+    code: "#include <stdio.h>\nint main() { int a = 5, b = 10; printf(\"%d\", a + b); return 0; }",
+    output: "15"
   },
   {
-    scrambled: ["for(int", "i=0;", "i<10;", "i++)", "{", "printf(", "'%d\\n',", "i);", "}"],
-    correct: "for(int i=0; i<10; i++) { printf('%d\\n', i); }",
-    output: "Prints numbers from 0 to 9, each on a new line.",
+    code: "for(int i = 0; i < 3; i++) { printf(\"%d \", i); }",
+    output: "0 1 2 "
   },
+  {
+    code: "int factorial(int n) { return n == 0 ? 1 : n * factorial(n - 1); }\nint main() { printf(\"%d\", factorial(4)); return 0; }",
+    output: "24"
+  },
+  {
+    code: "int main() { printf(\"%d\", 10 > 5 ? 10 : 5); return 0; }",
+    output: "10"
+  },
+  {
+    code: "int main() { int arr[] = {1, 2, 3, 4}; printf(\"%d\", arr[2]); return 0; }",
+    output: "3"
+  },
+  {
+    code: "#include <math.h>\nint main() { printf(\"%.2f\", sqrt(16)); return 0; }",
+    output: "4.00"
+  },
+  {
+    code: "int main() { int x = 5; x += 10; printf(\"%d\", x); return 0; }",
+    output: "15"
+  },
+  {
+    code: "int main() { int x = 10; if (x % 2 == 0) printf(\"Even\"); else printf(\"Odd\"); return 0; }",
+    output: "Even"
+  },
+  {
+    code: "#include <string.h>\nint main() { char str[] = \"Hello\"; printf(\"%lu\", strlen(str)); return 0; }",
+    output: "5"
+  },
+  {
+    code: "int main() { printf(\"%d\", (5 > 3) && (3 < 7)); return 0; }",
+    output: "1"
+  },
+  {
+    code: "int main() { printf(\"%d\", (10 > 20) || (5 < 10)); return 0; }",
+    output: "1"
+  },
+  {
+    code: "#include <stdio.h>\nint main() { printf(\"%c\", 'A' + 2); return 0; }",
+    output: "C"
+  },
+  {
+    code: "int main() { int x = 5; printf(\"%d\", ++x); return 0; }",
+    output: "6"
+  },
+  {
+    code: "int main() { printf(\"%f\", 5.0 / 2); return 0; }",
+    output: "2.500000"
+  },
+  {
+    code: "int main() { int x = 1; while (x <= 3) { printf(\"%d\", x); x++; } return 0; }",
+    output: "123"
+  },
+  {
+    code: "int main() { for (int i = 1; i <= 5; i++) { if (i == 3) continue; printf(\"%d \", i); } return 0; }",
+    output: "1 2 4 5 "
+  },
+  {
+    code: "int main() { int sum = 0; for (int i = 1; i <= 5; i++) sum += i; printf(\"%d\", sum); return 0; }",
+    output: "15"
+  },
+  {
+    code: "int main() { int a = 10; int b = 5; printf(\"%d\", a / b); return 0; }",
+    output: "2"
+  },
+  {
+    code: "#include <stdio.h>\nint main() { char str[] = \"C Programming\"; printf(\"%s\", str); return 0; }",
+    output: "C Programming"
+  }
 ];
 
 let currentIndex = 0;
-let userAnswer = [];
-
-const gameContainer = document.getElementById("game");
-const clueBox = document.getElementById("clue");
-const userCodeBox = document.getElementById("user-code");
-const resultBox = document.getElementById("result-box");
-const correctCode = document.getElementById("correct-code");
+const codeSnippet = document.getElementById("code-snippet");
+const userAnswerInput = document.getElementById("user-answer");
+const resultMessage = document.getElementById("result-message");
 
 function loadGame(index) {
-  gameContainer.innerHTML = "";
-  resultBox.style.display = "none";
-  clueBox.textContent = gameData[index].output;
-  userAnswer = [];
-  userCodeBox.textContent = "";
-
-  const { scrambled } = gameData[index];
-  scrambled.sort(() => Math.random() - 0.5);
-
-  scrambled.forEach((word, i) => {
-    const span = document.createElement("span");
-    span.textContent = word;
-    span.classList.add("scramble-item");
-    span.dataset.index = i;
-    span.addEventListener("click", () => selectWord(word, i));
-    gameContainer.appendChild(span);
-  });
+  const { code } = gameData[index];
+  codeSnippet.textContent = code;
+  userAnswerInput.value = "";
+  resultMessage.textContent = "";
 }
-
-function selectWord(word, index) {
-  const selectedIndex = userAnswer.indexOf(index);
-
-  if (selectedIndex === -1) {
-    userAnswer.push(index);
-    document.querySelector(`.scramble-item[data-index='${index}']`).style.visibility = "hidden";
-  } else {
-    userAnswer.splice(selectedIndex, 1);
-    document.querySelector(`.scramble-item[data-index='${index}']`).style.visibility = "visible";
-  }
-
-  const selectedWords = userAnswer.map((i) => gameData[currentIndex].scrambled[i]);
-  userCodeBox.textContent = selectedWords.join(" ");
-}
-
 
 function checkAnswer() {
-  const { correct } = gameData[currentIndex];
-  const selectedWords = userAnswer.map((i) => gameData[currentIndex].scrambled[i]);
-  const userCode = selectedWords.join(" ").replace(/\s+/g, " ").trim(); // Normalize spaces
+  const userAnswer = userAnswerInput.value.trim();
+  const correctAnswer = gameData[currentIndex].output.trim();
 
-  resultBox.style.display = "block";
-
-  if (userCode === correct) {
-    resultBox.innerHTML = `<p style="color: green;">Congratulations! You got it right! 🎉</p>`;
+  if (userAnswer === correctAnswer) {
+    resultMessage.innerHTML = "<p style='color: green;'>Correct! 🎉</p>";
     currentIndex++;
     if (currentIndex < gameData.length) {
       setTimeout(() => loadGame(currentIndex), 1500);
     } else {
-      resultBox.innerHTML += `<p style="color: green;">You've completed the game! 🎉</p>`;
+      resultMessage.innerHTML += "<p style='color: green;'>You've completed the game! 🎉</p>";
     }
   } else {
-    resultBox.innerHTML = `
-      <p style="color: red;">Oops! That's incorrect.</p>
-      <p><strong>Correct Code:</strong></p>
-      <pre>${correct}</pre>
+    resultMessage.innerHTML = `
+      <p style='color: red;'>Incorrect. Try again!</p>
+      <p><strong>Correct Answer:</strong> ${correctAnswer}</p>
     `;
   }
 }
-
 
 document.getElementById("check-answer").addEventListener("click", checkAnswer);
 
