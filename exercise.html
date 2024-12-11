@@ -62,7 +62,8 @@
     <div class="exercise-container">
       <h1>4 Pics, 1 Word</h1>
       <p class="puzzle-counter">Puzzle <span id="currentPuzzle">1</span> of <span id="totalPuzzles">3</span></p>
-      
+      <p id="hint" class="hint-text"></p>
+
       <div class="image-frame">
         <div class="image-grid">
           <img src="assets/image1.jpg" alt="Image 1" class="pic">
@@ -122,87 +123,110 @@ document.querySelector('.profile-icon').addEventListener('click', function (even
     dropdown.classList.toggle('open');
 });
 
+
 // Game data (replace with your actual data)
 const puzzles = [
     {
         images: ["assets/4pics/brush1.png", "assets/4pics/brush2.jpg", "assets/4pics/brush3.jpg", "assets/4pics/brush4.jpg"],
-        answer: "brush"
+        answer: "brush",
+        hint: "Hint: This allows the user to paint brush strokes on a layer."
     },
     {
         images: ["assets/4pics/blend1.jpg", "assets/4pics/blend2.jpg", "assets/4pics/blend3.jpg", "assets/4pics/blend4.jpg"],
-        answer: "blend"
+        answer: "blend",
+        hint: "Hint: Used to merge colors or effects smoothly."
     },
     {
         images: ["assets/4pics/canvas1.jpg", "assets/4pics/canvas2.jpg", "assets/4pics/canvas3.jpg", "assets/4pics/canvas4.png"],
-        answer: "canvas"
+        answer: "canvas",
+        hint: "The surface where artists create their masterpiece."
     },
     {
         images: ["assets/4pics/clone1.jpg", "assets/4pics/clone2.png", "assets/4pics/clone3.jpg", "assets/4pics/clone4.jpg"],
-        answer: "clone"
+        answer: "clone",
+        hint: "A tool used to duplicate parts of an image onto another area."
     },
     {
         images: ["assets/4pics/Contrast1.png", "assets/4pics/Contrast2.jpg", "assets/4pics/Contrast3.jpg", "assets/4pics/Contrast4.jpg"],
-        answer: "contrast"
+        answer: "contrast",
+        hint: "Hint: Adjusts the difference between light and dark areas in an image."
     },
     {
         images: ["assets/4pics/crop1.jpg", "assets/4pics/crop2.png", "assets/4pics/crop3.jpg", "assets/4pics/crop4.png"],
-        answer: "crop"
+        answer: "crop",
+        hint: "Hint: Removes unwanted parts of an image to improve composition or focus."
     },
     {
         images: ["assets/4pics/Export1.jpg", "assets/4pics/Export2.jpg", "assets/4pics/Export3.png", "assets/4pics/Export4.png"],
-        answer: "export"
+        answer: "export",
+        hint: "Hint: Saves an image or project in a specific file format for sharing or use."
+
     },
     {
         images: ["assets/4pics/filter1.png", "assets/4pics/filter2.jpg", "assets/4pics/filter3.jpg", "assets/4pics/filter4.webp"],
-        answer: "filter"
+        answer: "filter",
+        hint: "Hint: Adds effects to an image, such as blurring or sharpening"
     },
     {
         images: ["assets/4pics/gradient1.jpg", "assets/4pics/gradient2.png", "assets/4pics/gradient3.jpg", "assets/4pics/gradient4.jpg"],
-        answer: "gradient"
+        answer: "gradient",
+        hint: "Hint: Creates a smooth transition between two or more colors."
+
     },
     {
         images: ["assets/4pics/layer1.png", "assets/4pics/layer2.JPG", "assets/4pics/layer3.jpg", "assets/4pics/layer4.jpg"],
-        answer: "gradient"
-    },
-    {
-        images: ["assets/4pics/layer1.png", "assets/4pics/layer2.JPG", "assets/4pics/layer3.jpg", "assets/4pics/layer4.jpg"],
-        answer: "layer"
+        answer: "layer",
+        hint: "Hint: A single level in the stack of an image editing project, allowing non-destructive edits."
     },
     {
         images: ["assets/4pics/mask1.jpg", "assets/4pics/mask2.jpg", "assets/4pics/mask3.png", "assets/4pics/mask4.jpg"],
-        answer: "mask"
+        answer: "mask",
+        hint: "Used to hide or reveal parts of a layer without permanently altering it."
     },
     {
         images: ["assets/4pics/opacity1.jpg", "assets/4pics/opacity2.jpg", "assets/4pics/opacity3.jpg", "assets/4pics/opacity4.png"],
-        answer: "mask"
+        answer: "opacity",
+        hint: "Controls how transparent or solid a layer or object appears."
     },
     {
         images: ["assets/4pics/palatte1.png", "assets/4pics/palette2.jpg", "assets/4pics/palette3.jpg", "assets/4pics/palette4.png"],
-        answer: "palette"
+        answer: "palette",
+        hint: "A collection of colors used for a design or artwork."
     },
     {
         images: ["assets/4pics/resize1.jpg", "assets/4pics/resize2.jpg", "assets/4pics/resize3.jpg", "assets/4pics/resize4.jpg"],
-        answer: "resize"
+        answer: "resize",
+         hint: "Changes the dimensions of an image or object."
     },
     {
         images: ["assets/4pics/Retina1.jpg", "assets/4pics/Retina2.jpg", "assets/4pics/Retina3.jpg", "assets/4pics/Retina4.jpg"],
-        answer: "retina"
+        answer: "retina",
+        hint: "High-resolution displays that make images appear sharper and more detailed."
+
     },
     {
         images: ["assets/4pics/retouch1.jpg", "assets/4pics/retouch2.jpg", "assets/4pics/retouch3.jpg", "assets/4pics/retouch4.jpg"],
-        answer: "retouch"
+        answer: "retouch",
+        hint: "Edits or corrects imperfections in an image, such as blemishes or wrinkles"
+
     },
     {
         images: ["assets/4pics/Selection1.png", "assets/4pics/Selection2.jpg", "assets/4pics/Selection3.png", "assets/4pics/Selection4.jpg"],
-        answer: "selection"
+        answer: "selection",
+        hint: "Highlights or isolates a specific area of an image for editing."
+
     },
     {
         images: ["assets/4pics/Sharpen1.png", "assets/4pics/Sharpen2.jpg", "assets/4pics/Sharpen3.jpg", "assets/4pics/Sharpen4.jpg"],
-        answer: "sharpen"
+        answer: "sharpen",
+        hint: "Enhances the clarity and detail of an image."
+
     },
     {
         images: ["assets/4pics/Typography1.jpg", "assets/4pics/Typography2.jpg", "assets/4pics/Typography3.jpg", "assets/4pics/Typography4.jpg"],
-        answer: "typography"
+        answer: "typography",
+        hint: "The art of arranging text, including fonts, sizes, and spacing, in a design."
+
     },
 
 ];
@@ -221,6 +245,8 @@ const nextBtn = document.getElementById("nextBtn");
 const currentPuzzleSpan = document.getElementById("currentPuzzle");
 const totalPuzzlesSpan = document.getElementById("totalPuzzles");
 const images = document.querySelectorAll(".pic");
+const hintParagraph = document.getElementById('hint');
+
 
 // Modal elements
 const modal = document.getElementById("resultModal");
@@ -240,6 +266,7 @@ function loadPuzzle(index) {
     currentPuzzleSpan.textContent = index + 1;
     userAnswerInput.value = "";
     resultDiv.textContent = "";
+    hintParagraph.textContent = puzzle.hint; // Display the hint
 }
 
 // Submit answer handler
