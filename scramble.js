@@ -82,6 +82,8 @@ const gameData = [
 ];
 
 let currentIndex = 0;
+let score = 0;
+const totalQuestions = gameData.length;
 const codeSnippet = document.getElementById("code-snippet");
 const userAnswerInput = document.getElementById("user-answer");
 const resultMessage = document.getElementById("result-message");
@@ -99,21 +101,42 @@ function checkAnswer() {
 
   if (userAnswer === correctAnswer) {
     resultMessage.innerHTML = "<p style='color: green;'>Correct! 🎉</p>";
-    currentIndex++;
-    if (currentIndex < gameData.length) {
-      setTimeout(() => loadGame(currentIndex), 1500);
-    } else {
-      resultMessage.innerHTML += "<p style='color: green;'>You've completed the game! 🎉</p>";
-    }
+    score++; // Increment score
   } else {
     resultMessage.innerHTML = `
       <p style='color: red;'>Incorrect. Try again!</p>
       <p><strong>Correct Answer:</strong> ${correctAnswer}</p>
     `;
   }
+
+  currentIndex++;
+  if (currentIndex < gameData.length) {
+    setTimeout(() => loadGame(currentIndex), 1500);
+  } else {
+    // Display final score
+    resultMessage.innerHTML = `
+      <p style='color: green;'>You've completed the game! 🎉</p>
+      <p><strong>Your Score:</strong> ${score} / ${totalQuestions}</p>
+    `;
+  }
 }
 
 document.getElementById("check-answer").addEventListener("click", checkAnswer);
+
+
+document.getElementById('prev-button').addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    loadGame(currentIndex);
+  }
+});
+
+document.getElementById('next-button').addEventListener('click', () => {
+  if (currentIndex < gameData.length - 1) {
+    currentIndex++;
+    loadGame(currentIndex);
+  }
+});
 
 // Load the first game
 loadGame(currentIndex);
